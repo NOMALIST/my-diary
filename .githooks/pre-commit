@@ -1,0 +1,16 @@
+#!/bin/sh
+# git pre-commit 훅: lint → build → test 중 하나라도 실패하면 커밋 중단
+# 긴급 시 우회: git commit --no-verify
+
+set -e
+
+echo "[pre-commit] lint"
+npm run lint --silent
+
+echo "[pre-commit] build"
+npm run build --silent
+
+echo "[pre-commit] test"
+npm test --silent
+
+echo "[pre-commit] 모두 통과"
