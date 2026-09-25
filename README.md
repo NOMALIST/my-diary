@@ -23,7 +23,9 @@
 npm install
 npm run dev
 ```
-→ http://localhost:3000
+→ http://localhost:3000 (단독 실행 기본값)
+- 포트 지정: `PORT` 환경변수 또는 `npm run dev -- -p <포트>`
+- 알프레드(my-tool-box)로 실행 시 배정 포트(3100)가 `PORT`로 전달됨
 
 ## 설정 (선택)
 - `CLAUDE_MODEL`: 사용할 모델 별칭 (기본 `sonnet`, 예: `opus`, `haiku`)
