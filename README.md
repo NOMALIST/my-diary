@@ -10,7 +10,8 @@
 ## 동작 방식
 - AI 호출: 로그인된 **Claude Code CLI**(`claude -p`)를 서버에서 실행 → 구독 플랜 사용, API 키 불필요
 - 저장: Supabase Postgres `diary` 스키마 (일기 + 모든 요약 결과)
-  - 접속 정보: `.env.local`의 `DATABASE_URL` (`.env.example` 참고)
+  - 접속 정보: 상위 폴더 `my-app/.env.local`의 `DATABASE_URL` (로컬 앱 공유, `.env.example` 참고)
+  - `my-diary/.env.local`에 값이 있으면 그 값 우선
 - 본인 PC 로컬 전용 — 배포·타인 제공 불가
 
 ## 사전 준비

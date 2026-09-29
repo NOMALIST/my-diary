@@ -24,7 +24,7 @@ function getSql(): Sql {
   if (globalForDb.diarySql) return globalForDb.diarySql;
 
   const url = process.env.DATABASE_URL;
-  if (!url) throw new DbConfigError("DATABASE_URL 환경변수가 없습니다. .env.local을 확인하세요.");
+  if (!url) throw new DbConfigError("DATABASE_URL 환경변수가 없습니다. 접속 정보는 my-app/.env.local에 작성하세요.");
   // 형식이 깨진 URL은 라이브러리 에러에 원문(비밀번호 포함)이 찍히므로 미리 걸러냄
   try {
     new URL(url);
