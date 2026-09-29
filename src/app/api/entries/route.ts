@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { DateKeySchema } from "@/lib/schemas";
-import { updateData } from "@/lib/store";
+import { logError } from "@/lib/log";
+import { saveEntry } from "@/lib/store";
 
 const SaveEntrySchema = z.object({
   date: DateKeySchema,
@@ -16,13 +17,10 @@ export async function PUT(request: Request) {
   const { date, text } = parsed.data;
 
   try {
-    await updateData((data) => {
-      if (text.trim()) data.entries[date] = text;
-      else delete data.entries[date];
-    });
+    await saveEntry(date, text);
     return Response.json({ ok: true });
   } catch (e) {
-    console.error("[entries]", e);
-    return Response.json({ error: "일기 파일 저장에 실패했습니다." }, { status: 500 });
+    logError("[entries]", e);
+    return Response.json({ error: "일기 저장에 실패했습니다." }, { status: 500 });
   }
 }

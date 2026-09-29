@@ -50,3 +50,6 @@ next-env.d.ts
 Thumbs.db
 .vscode/
 .idea/
+
+# 환경변수 예시 파일은 커밋 (키 이름만, 값 없음)
+!.env.example

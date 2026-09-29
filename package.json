@@ -8,10 +8,12 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
+    "db:migrate-json": "node --env-file=.env.local scripts/migrate-json-to-db.mjs",
     "prepare": "git config core.hooksPath .githooks"
   },
   "dependencies": {
     "next": "16.3.6",
+    "postgres": "^3.4.9",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "zod": "^4.6.5"

@@ -9,13 +9,12 @@
 
 ## 동작 방식
 - AI 호출: 로그인된 **Claude Code CLI**(`claude -p`)를 서버에서 실행 → 구독 플랜 사용, API 키 불필요
-- 저장: 프로젝트 폴더 `data/diary.json` (일기 + 모든 요약 결과)
-  - 첫 저장 시 자동 생성
-  - 개인 기록이므로 `.gitignore`에 포함
+- 저장: Supabase Postgres `diary` 스키마 (일기 + 모든 요약 결과)
+  - 접속 정보: `.env.local`의 `DATABASE_URL` (`.env.example` 참고)
 - 본인 PC 로컬 전용 — 배포·타인 제공 불가
 
 ## 사전 준비
-- Node.js 20+
+- Node.js 20.6+
 - Claude Code 설치 및 로그인 (`claude` 실행 후 로그인)
 
 ## 실행
@@ -33,4 +32,4 @@ npm run dev
 ## 주의
 - 요약 1회당 수 초 소요 (CLI 기동 포함), 월간 회고는 더 오래 걸릴 수 있음
 - Claude Code 사용량 한도를 함께 사용
-- 백업: `data/diary.json` 파일만 복사하면 됨
+- 기존 `data/diary.json` 이전: `npm run db:migrate-json`
